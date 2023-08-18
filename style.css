@@ -1,0 +1,119 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  width: 100vw;
+  height: 100vh;
+  background-color: green;
+}
+
+.face {
+  position: relative;
+  margin: 0 auto;
+  background-image: url('/images/yalco-face.png');
+
+  animation-name: yalcoFace;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+}
+
+.face, .face * {
+  width: 100vh;
+  height: 100vh;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.face * {
+  position: absolute;
+  top: 0; left: 0;
+}
+
+.eyebrows {
+  background-image: url('/images/yalco-eyebrows.png');
+  animation-name: yalcoEyebrow;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+}
+.eyes {
+  background-image: url('/images/yalco-eyes.png');
+  background-size: 100% 200%;
+  background-position-y: 0;
+  animation-name: yalcoEyes;
+  animation-duration: 7s;
+  animation-iteration-count: infinite;
+  animation-timing-function: step-end;
+}
+
+.mouth {
+  background-image: url('/images/yalco-mouth.png');
+}
+.talking .mouth {
+  display: none;
+}
+.mouths {
+  display: none;
+
+  background-image: url('/images/yalco-mouths.png');
+  background-size: 100% 500%;
+
+  animation-name: yalcoMouth;
+  animation-duration: 750ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: step-end;
+}
+.talking .mouths {
+  display: inherit;
+}
+
+@keyframes yalcoFace {
+  from { transform: rotate(0deg); }
+  20% { transform: rotate(4deg); }
+  24% { transform: rotate(-3deg); }
+  36% { transform: rotate(4deg); }
+  48% { transform: rotate(-2deg); }
+  52% { transform: rotate(4deg); }
+  64% { transform: rotate(-3deg); }
+  72% { transform: rotate(2deg); }
+  78% { transform: rotate(-3deg); }
+  86% { transform: rotate(4deg); }
+  94% { transform: rotate(-2deg); }
+  to { transform: rotate(0deg); }
+}
+@keyframes yalcoMouth {
+  from { background-position-y: 0; }
+  20% { background-position-y: 25%; }
+  40% { background-position-y: 50%; }
+  60% { background-position-y: 75%; }
+  80% { background-position-y: 100%; }
+  to { background-position-y: 0; }
+}
+@keyframes yalcoEyes {
+  from { background-position-y: 0; }
+  24% { background-position-y: 0; }
+  25% { background-position-y: 100%; }
+  26% { background-position-y: 0; }
+  74% { background-position-y: 0; }
+  75% { background-position-y: 100%; }
+  76% { background-position-y: 0; }
+  79% { background-position-y: 0; }
+  80% { background-position-y: 100%; }
+  81% { background-position-y: 0; }
+  to { background-position-y: 0; }
+}
+@keyframes yalcoEyebrow {
+  from { transform: translateY(0%); }
+  20% { transform: translateY(0%); }
+  22% { transform: translateY(-1.8%); }
+  24% { transform: translateY(0%); }
+  70% { transform: translateY(0%); }
+  72% { transform: translateY(-1.8%); }
+  74% { transform: translateY(0%); }
+  80% { transform: translateY(0%); }
+  82% { transform: translateY(-1.8%); }
+  84% { transform: translateY(0%); }
+  to { transform: translateY(0%); }
+}
