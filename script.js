@@ -2,7 +2,6 @@ const body = document.querySelector('.body');
 const face = document.querySelector('.face');
 
 document.body.onkeydown = (e) => {
-  console.log(e.key)
   if (e.key === ' ') {
     body.classList.toggle('hidden');
   }
