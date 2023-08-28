@@ -4,24 +4,44 @@ body {
 }
 
 main {
+  position: relative;
   width: 100vw;
   height: 100vh;
   background-color: green;
 }
 
-.face {
-  position: relative;
-  margin: 0 auto;
-  background-image: url('/images/yalco-face.png');
+.body {
+  position: fixed;
+  bottom: -30px;
+  right: -28px;
+  width: 284.8px;
+  height: 347.2px;
+  background-image: url('/images/body.png');
+  background-size: cover;
+  overflow: hidden;
 
-  animation-name: yalcoFace;
-  animation-duration: 20s;
+  animation-name: bodyRotate;
+  animation-duration: 40s;
   animation-iteration-count: infinite;
+  transform-origin: bottom center;
+}
+
+.face {
+  position: absolute;
+  width: 198.4px;
+  height: 198.4px;
+  left: 19.2px;
+  background-image: url('/images/face.png');
+  background-size: cover;
+  overflow: hidden;
+
+  animation-name: faceRotate;
+  animation-duration: 24s;
+  animation-iteration-count: infinite;
+  transform-origin: center 80%;
 }
 
 .face, .face * {
-  width: 100vh;
-  height: 100vh;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -30,26 +50,30 @@ main {
 .face * {
   position: absolute;
   top: 0; left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .eyebrows {
-  background-image: url('/images/yalco-eyebrows.png');
-  animation-name: yalcoEyebrow;
+  background-image: url('/images/eyebrows.png');
+  animation-name: eyebrowsMove;
   animation-duration: 8s;
   animation-iteration-count: infinite;
 }
+
 .eyes {
-  background-image: url('/images/yalco-eyes.png');
+  background-image: url('/images/eyes.png');
   background-size: 100% 200%;
   background-position-y: 0;
-  animation-name: yalcoEyes;
+
+  animation-name: eyesBlink;
   animation-duration: 7s;
   animation-iteration-count: infinite;
   animation-timing-function: step-end;
 }
 
 .mouth {
-  background-image: url('/images/yalco-mouth.png');
+  background-image: url('/images/mouth-closed.png');
 }
 .talking .mouth {
   display: none;
@@ -57,11 +81,11 @@ main {
 .mouths {
   display: none;
 
-  background-image: url('/images/yalco-mouths.png');
-  background-size: 100% 500%;
+  background-image: url('/images/mouths.png');
+  background-size: 700% 100%;
 
-  animation-name: yalcoMouth;
-  animation-duration: 750ms;
+  animation-name: mouthTalking;
+  animation-duration: 800ms;
   animation-iteration-count: infinite;
   animation-timing-function: step-end;
 }
@@ -69,7 +93,17 @@ main {
   display: inherit;
 }
 
-@keyframes yalcoFace {
+@keyframes bodyRotate {
+  from { transform: rotate(0deg); }
+  10% { transform: rotate(-1deg); }
+  24% { transform: rotate(4deg); }
+  53% { transform: rotate(-2deg); }
+  82% { transform: rotate(4deg); }
+  96% { transform: rotate(-2deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes faceRotate {
   from { transform: rotate(0deg); }
   20% { transform: rotate(4deg); }
   24% { transform: rotate(-3deg); }
@@ -83,15 +117,8 @@ main {
   94% { transform: rotate(-2deg); }
   to { transform: rotate(0deg); }
 }
-@keyframes yalcoMouth {
-  from { background-position-y: 0; }
-  20% { background-position-y: 25%; }
-  40% { background-position-y: 50%; }
-  60% { background-position-y: 75%; }
-  80% { background-position-y: 100%; }
-  to { background-position-y: 0; }
-}
-@keyframes yalcoEyes {
+
+@keyframes eyesBlink {
   from { background-position-y: 0; }
   24% { background-position-y: 0; }
   25% { background-position-y: 100%; }
@@ -104,7 +131,8 @@ main {
   81% { background-position-y: 0; }
   to { background-position-y: 0; }
 }
-@keyframes yalcoEyebrow {
+
+@keyframes eyebrowsMove {
   from { transform: translateY(0%); }
   20% { transform: translateY(0%); }
   22% { transform: translateY(-1.8%); }
@@ -116,4 +144,15 @@ main {
   82% { transform: translateY(-1.8%); }
   84% { transform: translateY(0%); }
   to { transform: translateY(0%); }
+}
+
+@keyframes mouthTalking {
+  from { background-position-x: 0%; }
+  14% { background-position-x: 16.6667%; }
+  29% { background-position-x: 33.3333%; }
+  43% { background-position-x: 50%; }
+  57% { background-position-x: 66.6667%; }
+  71% { background-position-x: 83.3333%; }
+  86% { background-position-x: 100%; }
+  to { background-position-x: 0; }
 }
