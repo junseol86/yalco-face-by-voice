@@ -25,6 +25,9 @@ main {
   animation-iteration-count: infinite;
   transform-origin: bottom center;
 }
+.body.hidden {
+  display: none;
+}
 
 .face {
   position: absolute;

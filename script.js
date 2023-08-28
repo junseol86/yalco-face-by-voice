@@ -1,4 +1,12 @@
+const body = document.querySelector('.body');
 const face = document.querySelector('.face');
+
+document.body.onkeydown = (e) => {
+  console.log(e.key)
+  if (e.key === ' ') {
+    body.classList.toggle('hidden');
+  }
+};
 
 async function startLoggingVolume() {
   // 사용자의 오디오 장치에 접근 권한을 요청합니다.
